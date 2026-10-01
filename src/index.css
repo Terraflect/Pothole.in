@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-manrope: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-inter);
+    color: #404040;
+    background-color: #FFFFFF;
+  }
+
+  h1, h2, h3, .font-heading {
+    font-family: var(--font-manrope);
+  }
+}
+
+@keyframes bounceSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.animate-bounce-subtle {
+  animation: bounceSlow 2s ease-in-out infinite;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f5ece1;
+}
+::-webkit-scrollbar-thumb {
+  background: #c5a57f;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a88863;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Pothole.in — Fixing Roads For a Better India",
+  "description": "An open-source, community-led initiative to report, track, and fix potholes across India, empowering citizens and improving road safety.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
