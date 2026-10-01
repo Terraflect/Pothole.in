@@ -160,6 +160,16 @@ export const ReportModal: React.FC<ReportModalProps> = ({
 
         {/* Form Body */}
         <form onSubmit={handleSubmit} className="p-6 overflow-y-auto space-y-6">
+          {/* Prototype Notice Banner */}
+          <div className="bg-[#F5ECE1]/70 border border-[#ebdccb] px-3.5 py-2.5 rounded-2xl flex items-center gap-2 text-xs text-[#404040]">
+            <span className="font-bold text-[10px] px-1.5 py-0.5 rounded bg-[#C5A57F] text-zinc-950 uppercase tracking-wider shrink-0">
+              Prototype Only
+            </span>
+            <span className="text-zinc-600">
+              Submissions and computer vision scans are for prototype demonstration and stored in your browser.
+            </span>
+          </div>
+
           {/* Photo Scanner Section */}
           <div>
             <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-600 mb-2">

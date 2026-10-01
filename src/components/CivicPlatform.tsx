@@ -122,6 +122,16 @@ export const CivicPlatform: React.FC<CivicPlatformProps> = ({
         </div>
       </header>
 
+      {/* Prototype Disclaimer Alert Strip */}
+      <div className="bg-[#404040] text-zinc-200 border-b border-zinc-800 px-4 py-2 text-xs flex flex-wrap items-center justify-center gap-2">
+        <span className="font-bold px-2 py-0.5 rounded bg-[#C5A57F] text-zinc-950 text-[10px] uppercase tracking-wider">
+          Prototype Only
+        </span>
+        <span className="text-zinc-300">
+          This system is an interactive demonstration & pilot prototype. Road reports, simulated vision AI scans, and municipal escalations are for prototype testing.
+        </span>
+      </div>
+
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
         {/* Metric Ribbon */}

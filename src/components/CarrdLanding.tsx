@@ -93,6 +93,16 @@ export const CarrdLanding: React.FC<CarrdLandingProps> = ({
 
   return (
     <div className="min-h-screen bg-white text-[#404040] selection:bg-[#F5ECE1] selection:text-[#404040]">
+      {/* Prototype Notice Banner */}
+      <div className="bg-[#404040] text-zinc-200 px-4 py-2 text-center text-xs flex items-center justify-center gap-2 border-b border-zinc-800">
+        <span className="bg-[#C5A57F] text-zinc-950 font-bold px-2 py-0.5 rounded text-[10px] uppercase tracking-wider">
+          Prototype Only
+        </span>
+        <span>
+          Pothole.in is currently an experimental prototype & concept demonstration.
+        </span>
+      </div>
+
       {/* Top Dynamic Bar to highlight interactive capabilities */}
       <div className="sticky top-0 z-40 bg-[#F5ECE1]/95 backdrop-blur-md border-b border-[#ebdccb] px-4 py-2 flex items-center justify-between text-xs">
         <div className="flex items-center gap-2">
@@ -191,8 +201,13 @@ export const CarrdLanding: React.FC<CarrdLandingProps> = ({
               <br />
               Message to discuss, collaborate, or support.
             </p>
-            <p className="text-zinc-500 text-sm sm:text-base">(The site is currently under construction)</p>
+            <p className="text-zinc-500 text-sm sm:text-base">(The site is currently under construction • Prototype Only)</p>
             <p className="font-semibold text-[#404040]">~ By Lepakshi</p>
+            <div className="pt-1">
+              <span className="inline-block text-[11px] text-zinc-500 bg-[#F5ECE1]/70 border border-[#ebdccb] px-3 py-1 rounded-full font-medium">
+                ⚠️ Prototype Demonstration Only — Features and flows are simulated for pilot evaluation.
+              </span>
+            </div>
           </div>
 
           {/* Buttons01: Reddit */}
@@ -341,7 +356,12 @@ export const CarrdLanding: React.FC<CarrdLandingProps> = ({
             </a>
             <span>•</span>
             <span>Created by Lepakshi</span>
+            <span>•</span>
+            <span className="font-semibold text-[#C5A57F]">Prototype Only</span>
           </div>
+          <p className="text-[11px] text-zinc-400">
+            Disclaimer: Pothole.in is a non-governmental civic concept prototype for testing road condition reporting workflows.
+          </p>
         </footer>
       </main>
     </div>
