@@ -20,70 +20,70 @@ export const CarrdLanding: React.FC<CarrdLandingProps> = ({
   // Mapping the 10 carrd images to pothole data or gallery metadata
   const carrdImages = [
     {
-      src: '/assets/carrd/image01.jpg',
+      src: './assets/carrd/image01.jpg',
       id: 'pothole-1',
       title: 'Outer Ring Road (ORR), Bengaluru',
       landmark: 'Near Bellandur - Marathahalli flyover',
       city: 'Bengaluru',
     },
     {
-      src: '/assets/carrd/image02.jpg',
+      src: './assets/carrd/image02.jpg',
       id: 'pothole-2',
       title: 'HITEC City Main Road, Hyderabad',
       landmark: 'Near Cyber Towers Metro',
       city: 'Hyderabad',
     },
     {
-      src: '/assets/carrd/image03.jpg',
+      src: './assets/carrd/image03.jpg',
       id: 'pothole-3',
       title: 'Hinjewadi Phase 1, Pune',
       landmark: 'Wipro Circle Junction',
       city: 'Pune',
     },
     {
-      src: '/assets/carrd/image04.jpg',
+      src: './assets/carrd/image04.jpg',
       id: 'pothole-4',
       title: 'Whitefield Main Road, Bengaluru',
       landmark: 'Near ITPL Gate 3 (Resurfaced)',
       city: 'Bengaluru',
     },
     {
-      src: '/assets/carrd/image05.jpg',
+      src: './assets/carrd/image05.jpg',
       id: 'pothole-5',
       title: 'Western Express Highway, Mumbai',
       landmark: 'Below Andheri Flyover',
       city: 'Mumbai',
     },
     {
-      src: '/assets/carrd/image06.jpg',
+      src: './assets/carrd/image06.jpg',
       id: 'pothole-6',
       title: 'Koramangala 80 Feet Road, Bengaluru',
       landmark: 'Near Sony World Signal',
       city: 'Bengaluru',
     },
     {
-      src: '/assets/carrd/image07.jpg',
+      src: './assets/carrd/image07.jpg',
       id: 'pothole-7',
       title: 'Noida Expressway Service Road, Delhi NCR',
       landmark: 'Opposite Sector 128',
       city: 'Delhi NCR',
     },
     {
-      src: '/assets/carrd/image08.jpg',
+      src: './assets/carrd/image08.jpg',
       id: 'pothole-8',
       title: 'Old Mahabalipuram Road (OMR), Chennai',
       landmark: 'Near Sholinganallur Junction',
       city: 'Chennai',
     },
     {
-      src: '/assets/carrd/image09.jpg',
+      src: './assets/carrd/image09.jpg',
       id: 'pothole-9',
       title: 'BKC Connector, Mumbai',
       landmark: 'Near Jio World Garden',
       city: 'Mumbai',
     },
     {
-      src: '/assets/carrd/image10.jpg',
+      src: './assets/carrd/image10.jpg',
       id: 'pothole-10',
       title: 'Salt Lake Sector V, Kolkata',
       landmark: 'Near College More',
@@ -141,7 +141,7 @@ export const CarrdLanding: React.FC<CarrdLandingProps> = ({
           <div className="relative group cursor-pointer" onClick={onOpenPrototype}>
             <div className="overflow-hidden rounded-sm transition-transform duration-300 group-hover:scale-102">
               <img
-                src="/assets/carrd/a0b0b722.jpg"
+                src="./assets/carrd/a0b0b722.jpg"
                 alt="Pothole.in Hero Graphic"
                 className="max-h-60 sm:max-h-72 w-auto mx-auto object-contain"
               />

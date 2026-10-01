@@ -55,7 +55,7 @@ export const INITIAL_POTHOLES: PotholeReport[] = [
   {
     id: 'pothole-1',
     reportCode: 'BLR-ORR-104',
-    imageUrl: '/assets/carrd/image01.jpg',
+    imageUrl: './assets/carrd/image01.jpg',
     location: {
       lat: 12.9352,
       lng: 77.6953,
@@ -84,7 +84,7 @@ export const INITIAL_POTHOLES: PotholeReport[] = [
   {
     id: 'pothole-2',
     reportCode: 'HYD-HTC-089',
-    imageUrl: '/assets/carrd/image02.jpg',
+    imageUrl: './assets/carrd/image02.jpg',
     location: {
       lat: 17.4474,
       lng: 78.3762,
@@ -112,7 +112,7 @@ export const INITIAL_POTHOLES: PotholeReport[] = [
   {
     id: 'pothole-3',
     reportCode: 'PUN-HIN-214',
-    imageUrl: '/assets/carrd/image03.jpg',
+    imageUrl: './assets/carrd/image03.jpg',
     location: {
       lat: 18.5912,
       lng: 73.7389,
@@ -140,7 +140,7 @@ export const INITIAL_POTHOLES: PotholeReport[] = [
   {
     id: 'pothole-4',
     reportCode: 'BLR-WHF-031',
-    imageUrl: '/assets/carrd/image04.jpg',
+    imageUrl: './assets/carrd/image04.jpg',
     location: {
       lat: 12.9854,
       lng: 77.7315,
@@ -173,7 +173,7 @@ export const INITIAL_POTHOLES: PotholeReport[] = [
   {
     id: 'pothole-5',
     reportCode: 'MUM-WEH-117',
-    imageUrl: '/assets/carrd/image05.jpg',
+    imageUrl: './assets/carrd/image05.jpg',
     location: {
       lat: 19.1136,
       lng: 72.8569,
@@ -206,7 +206,7 @@ export const INITIAL_POTHOLES: PotholeReport[] = [
   {
     id: 'pothole-6',
     reportCode: 'BLR-KRM-077',
-    imageUrl: '/assets/carrd/image06.jpg',
+    imageUrl: './assets/carrd/image06.jpg',
     location: {
       lat: 12.9344,
       lng: 77.6200,
@@ -234,7 +234,7 @@ export const INITIAL_POTHOLES: PotholeReport[] = [
   {
     id: 'pothole-7',
     reportCode: 'DEL-NOI-305',
-    imageUrl: '/assets/carrd/image07.jpg',
+    imageUrl: './assets/carrd/image07.jpg',
     location: {
       lat: 28.5355,
       lng: 77.3910,
@@ -262,7 +262,7 @@ export const INITIAL_POTHOLES: PotholeReport[] = [
   {
     id: 'pothole-8',
     reportCode: 'CHN-OMR-182',
-    imageUrl: '/assets/carrd/image08.jpg',
+    imageUrl: './assets/carrd/image08.jpg',
     location: {
       lat: 12.9010,
       lng: 80.2279,
@@ -291,7 +291,7 @@ export const INITIAL_POTHOLES: PotholeReport[] = [
   {
     id: 'pothole-9',
     reportCode: 'MUM-BKC-044',
-    imageUrl: '/assets/carrd/image09.jpg',
+    imageUrl: './assets/carrd/image09.jpg',
     location: {
       lat: 19.0657,
       lng: 72.8687,
@@ -319,7 +319,7 @@ export const INITIAL_POTHOLES: PotholeReport[] = [
   {
     id: 'pothole-10',
     reportCode: 'KOL-SLK-191',
-    imageUrl: '/assets/carrd/image10.jpg',
+    imageUrl: './assets/carrd/image10.jpg',
     location: {
       lat: 22.5802,
       lng: 88.4326,

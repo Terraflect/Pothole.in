@@ -20,10 +20,10 @@ interface ReportModalProps {
 }
 
 const SAMPLE_FIELD_PHOTOS = [
-  { label: 'Monsoon Crater (BLR)', url: '/assets/carrd/image01.jpg' },
-  { label: 'Traffic Junction (HYD)', url: '/assets/carrd/image02.jpg' },
-  { label: 'Deep Subsidence (PUN)', url: '/assets/carrd/image03.jpg' },
-  { label: 'Highway Fracture (MUM)', url: '/assets/carrd/image05.jpg' },
+  { label: 'Monsoon Crater (BLR)', url: './assets/carrd/image01.jpg' },
+  { label: 'Traffic Junction (HYD)', url: './assets/carrd/image02.jpg' },
+  { label: 'Deep Subsidence (PUN)', url: './assets/carrd/image03.jpg' },
+  { label: 'Highway Fracture (MUM)', url: './assets/carrd/image05.jpg' },
 ];
 
 export const ReportModal: React.FC<ReportModalProps> = ({
