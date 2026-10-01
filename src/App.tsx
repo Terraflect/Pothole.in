@@ -134,19 +134,10 @@ export default function App() {
         <button
           onClick={() => setViewMode((prev) => (prev === 'carrd' ? 'platform' : 'carrd'))}
           className="px-4 py-2.5 rounded-full bg-[#404040] hover:bg-[#2d2d2d] text-white shadow-xl hover:shadow-2xl flex items-center gap-2 text-xs font-bold transition-all transform active:scale-95 border border-white/20"
-          title={viewMode === 'carrd' ? 'Switch to Live Civic Platform' : 'Switch to Carrd Landing Page'}
+          title="Switch view"
         >
-          {viewMode === 'carrd' ? (
-            <>
-              <Compass className="w-4 h-4 text-[#C5A57F]" />
-              <span>Launch Live Utility</span>
-            </>
-          ) : (
-            <>
-              <LayoutTemplate className="w-4 h-4 text-[#C5A57F]" />
-              <span>Carrd Landing View</span>
-            </>
-          )}
+          <LayoutTemplate className="w-4 h-4 text-[#C5A57F]" />
+          <span>landing page</span>
         </button>
       </div>
 

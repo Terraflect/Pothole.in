@@ -121,62 +121,58 @@ Urgent action required for commuter safety! #FixRoadsIndia #PotholeIn @${
                   </span>
                 </div>
 
-                {/* Interactive Split Slider */}
-                <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden select-none border-4 border-[#F5ECE1]">
-                  {/* After Image (Full background) */}
-                  <img
-                    src={pothole.resolvedImageUrl}
-                    alt="Road Resurfaced"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-
-                  {/* Before Image (Clipped overlay) */}
-                  <div
-                    className="absolute inset-0 overflow-hidden"
-                    style={{ width: `${sliderPosition}%` }}
-                  >
-                    <img
-                      src={pothole.imageUrl}
-                      alt="Pothole Before"
-                      className="absolute inset-0 w-full h-full object-cover max-w-none"
-                      style={{ width: '100%', height: '100%' }}
-                    />
+                {/* Repair Status Comparison in Plain Text */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-5 rounded-2xl bg-[#FDFBF8] border-4 border-[#F5ECE1]">
+                  <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 space-y-2 text-left">
+                    <span className="bg-rose-600 text-white text-[11px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider">
+                      Initial Hazard State
+                    </span>
+                    <h4 className="font-bold text-sm text-rose-950">Deep Crater ({pothole.estimatedDepthCm}cm Depth)</h4>
+                    <p className="text-xs text-rose-900 leading-relaxed">
+                      Severe asphalt breakdown causing vehicle bottoming-out and urgent hazard to two-wheelers during monsoon showers.
+                    </p>
                   </div>
 
-                  {/* Divider line and handle */}
-                  <div
-                    className="absolute top-0 bottom-0 w-1 bg-white shadow-xl cursor-ew-resize flex items-center justify-center"
-                    style={{ left: `${sliderPosition}%` }}
-                  >
-                    <div className="w-8 h-8 rounded-full bg-[#C5A57F] text-white flex items-center justify-center shadow-lg text-xs font-bold border-2 border-white">
-                      ↔
-                    </div>
+                  <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 space-y-2 text-left">
+                    <span className="bg-emerald-600 text-white text-[11px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider">
+                      Verified Resurfacing
+                    </span>
+                    <h4 className="font-bold text-sm text-emerald-950">Cold Milled & DBM Restored</h4>
+                    <p className="text-xs text-emerald-900 leading-relaxed">
+                      {pothole.resolutionSummary || 'Dense Bituminous Macadam (DBM) layer applied. Full surface friction certified.'}
+                    </p>
                   </div>
-
-                  {/* Invisible Range Input for dragging */}
-                  <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value={sliderPosition}
-                    onChange={(e) => setSliderPosition(Number(e.target.value))}
-                    className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize"
-                  />
                 </div>
-                <p className="text-[11px] text-center text-zinc-500">
-                  Drag the slider horizontally to compare before and after repairs
-                </p>
               </div>
             ) : (
-              <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border-4 border-[#F5ECE1] bg-zinc-950">
-                <img
-                  src={pothole.imageUrl}
-                  alt={pothole.roadName}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute top-4 left-4 bg-black/75 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/20 text-white text-xs flex items-center gap-1.5 font-medium">
-                  <Flame className="w-4 h-4 text-rose-500" />
-                  <span>Estimated Crater Depth: {pothole.estimatedDepthCm} cm</span>
+              <div className="p-6 rounded-2xl border-4 border-[#F5ECE1] bg-[#FDFBF8] text-left space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#F5ECE1] pb-3">
+                  <span className="bg-[#404040] text-white text-xs font-mono font-bold px-2.5 py-1 rounded uppercase tracking-wider">
+                    {pothole.reportCode} • Incident Assessment
+                  </span>
+                  <span className="text-xs font-bold text-rose-600 bg-rose-50 px-3 py-1 rounded-full border border-rose-200">
+                    Depth: ~{pothole.estimatedDepthCm} cm Crater
+                  </span>
+                </div>
+                <div className="space-y-1.5">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-400">Field Damage Report</span>
+                  <p className="text-sm text-zinc-800 leading-relaxed font-medium bg-white p-3.5 rounded-xl border border-[#F5ECE1]">
+                    "{pothole.description}"
+                  </p>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1 text-xs">
+                  <div className="bg-white p-2.5 rounded-lg border border-[#F5ECE1]">
+                    <span className="text-zinc-400 block text-[10px] uppercase font-bold">Corridor Importance</span>
+                    <span className="font-bold text-zinc-800">{pothole.trafficImportance} / 10 Traffic</span>
+                  </div>
+                  <div className="bg-white p-2.5 rounded-lg border border-[#F5ECE1]">
+                    <span className="text-zinc-400 block text-[10px] uppercase font-bold">Assigned Ward</span>
+                    <span className="font-bold text-zinc-800 truncate block">{pothole.wardInfo.wardName}</span>
+                  </div>
+                  <div className="col-span-2 sm:col-span-1 bg-white p-2.5 rounded-lg border border-[#F5ECE1]">
+                    <span className="text-zinc-400 block text-[10px] uppercase font-bold">Civic Reporter</span>
+                    <span className="font-bold text-zinc-800 truncate block">{pothole.reporterName}</span>
+                  </div>
                 </div>
               </div>
             )}

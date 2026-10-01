@@ -213,11 +213,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
               {hoveredPothole?.id === pothole.id && (
                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-60 p-2.5 bg-zinc-900/95 backdrop-blur-md rounded-xl border border-zinc-700 shadow-2xl text-left pointer-events-none z-30">
                   <div className="flex items-center gap-2 mb-1.5">
-                    <img
-                      src={pothole.imageUrl}
-                      alt={pothole.roadName}
-                      className="w-10 h-10 rounded-lg object-cover border border-zinc-700 shrink-0"
-                    />
+                    <div className="w-9 h-9 rounded-lg bg-[#F5ECE1] flex items-center justify-center text-[#404040] font-black text-xs shrink-0 border border-[#C5A57F]">
+                      {pothole.estimatedDepthCm}cm
+                    </div>
                     <div className="min-w-0">
                       <p className="text-[10px] font-mono text-[#C5A57F] uppercase tracking-wider">
                         {pothole.reportCode}

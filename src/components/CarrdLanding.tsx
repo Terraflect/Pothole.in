@@ -25,6 +25,7 @@ export const CarrdLanding: React.FC<CarrdLandingProps> = ({
       title: 'Outer Ring Road (ORR), Bengaluru',
       landmark: 'Near Bellandur - Marathahalli flyover',
       city: 'Bengaluru',
+      damageSummary: 'Deep 18cm crater cavity spanning across the fast lane with pooled rainwater and severe chassis-impact risk.',
     },
     {
       src: './assets/carrd/image02.jpg',
@@ -32,6 +33,7 @@ export const CarrdLanding: React.FC<CarrdLandingProps> = ({
       title: 'HITEC City Main Road, Hyderabad',
       landmark: 'Near Cyber Towers Metro',
       city: 'Hyderabad',
+      damageSummary: 'Surface asphalt disintegration with jagged loose gravel and multiple edge holes near the tech park bus bay.',
     },
     {
       src: './assets/carrd/image03.jpg',
@@ -39,6 +41,7 @@ export const CarrdLanding: React.FC<CarrdLandingProps> = ({
       title: 'Hinjewadi Phase 1, Pune',
       landmark: 'Wipro Circle Junction',
       city: 'Pune',
+      damageSummary: 'Severe road subsidence and sunken asphalt trench after utility pipe excavation with sharp rim-damaging lips.',
     },
     {
       src: './assets/carrd/image04.jpg',
@@ -46,6 +49,7 @@ export const CarrdLanding: React.FC<CarrdLandingProps> = ({
       title: 'Whitefield Main Road, Bengaluru',
       landmark: 'Near ITPL Gate 3 (Resurfaced)',
       city: 'Bengaluru',
+      damageSummary: 'Cold-milled and dense bituminous macadam (DBM) resurfaced corridor verified with citizen audit after 680+ upvotes.',
     },
     {
       src: './assets/carrd/image05.jpg',
@@ -53,6 +57,7 @@ export const CarrdLanding: React.FC<CarrdLandingProps> = ({
       title: 'Western Express Highway, Mumbai',
       landmark: 'Below Andheri Flyover',
       city: 'Mumbai',
+      damageSummary: 'Bridge expansion joint asphalt rupture with uneven vehicular impact dip on northbound carriageway.',
     },
     {
       src: './assets/carrd/image06.jpg',
@@ -60,6 +65,7 @@ export const CarrdLanding: React.FC<CarrdLandingProps> = ({
       title: 'Koramangala 80 Feet Road, Bengaluru',
       landmark: 'Near Sony World Signal',
       city: 'Bengaluru',
+      damageSummary: 'Broken tarmac with submerged water puddle right after speed bump causing two-wheeler skidding hazards.',
     },
     {
       src: './assets/carrd/image07.jpg',
@@ -67,6 +73,7 @@ export const CarrdLanding: React.FC<CarrdLandingProps> = ({
       title: 'Noida Expressway Service Road, Delhi NCR',
       landmark: 'Opposite Sector 128',
       city: 'Delhi NCR',
+      damageSummary: 'Longitudinal trench crack transitioning into deep asphalt cavities along the edge of heavy truck transit lane.',
     },
     {
       src: './assets/carrd/image08.jpg',
@@ -74,6 +81,7 @@ export const CarrdLanding: React.FC<CarrdLandingProps> = ({
       title: 'Old Mahabalipuram Road (OMR), Chennai',
       landmark: 'Near Sholinganallur Junction',
       city: 'Chennai',
+      damageSummary: 'Multiple continuous potholes along the shoulder lane forcing buses and autos to veer abruptly into oncoming traffic.',
     },
     {
       src: './assets/carrd/image09.jpg',
@@ -81,6 +89,7 @@ export const CarrdLanding: React.FC<CarrdLandingProps> = ({
       title: 'BKC Connector, Mumbai',
       landmark: 'Near Jio World Garden',
       city: 'Mumbai',
+      damageSummary: 'Surface erosion and asphalt depression following monsoon downpour requiring rapid mastic sealing.',
     },
     {
       src: './assets/carrd/image10.jpg',
@@ -88,8 +97,40 @@ export const CarrdLanding: React.FC<CarrdLandingProps> = ({
       title: 'Salt Lake Sector V, Kolkata',
       landmark: 'Near College More',
       city: 'Kolkata',
+      damageSummary: 'Severely fractured blacktop and jagged surface cavities across the tram track intersection and tech corridor.',
     },
   ];
+
+  const getSeverityBadge = (severity?: string, status?: string) => {
+    if (status === 'resolved') {
+      return {
+        text: 'Resurfaced & Resolved',
+        cls: 'bg-emerald-500 text-white border-emerald-400',
+      };
+    }
+    switch (severity) {
+      case 'dangerous':
+        return {
+          text: 'Dangerous Crater',
+          cls: 'bg-rose-500 text-white border-rose-400',
+        };
+      case 'severe':
+        return {
+          text: 'Severe Cavity',
+          cls: 'bg-orange-500 text-white border-orange-400',
+        };
+      case 'moderate':
+        return {
+          text: 'Moderate Hazard',
+          cls: 'bg-amber-500 text-white border-amber-400',
+        };
+      default:
+        return {
+          text: 'Active Report',
+          cls: 'bg-sky-500 text-white border-sky-400',
+        };
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white text-[#404040] selection:bg-[#F5ECE1] selection:text-[#404040]">
@@ -132,24 +173,34 @@ export const CarrdLanding: React.FC<CarrdLandingProps> = ({
       <main className="max-w-[45rem] mx-auto px-6 sm:px-12 py-16 sm:py-24 text-center">
         {/* ================= CONTAINER 05 (Hero) ================= */}
         <section className="space-y-8 flex flex-col items-center">
-          {/* Text08: Uppercase Pothole.in */}
-          <p className="text-sm tracking-[0.2rem] uppercase font-semibold text-[#C5A57F] select-none">
+          {/* Text08: Pothole.in */}
+          <p className="text-sm tracking-[0.2rem] font-semibold text-[#C5A57F] select-none">
             Pothole.in
           </p>
 
-          {/* Gallery01: Hero Thumbnail */}
-          <div className="relative group cursor-pointer" onClick={onOpenPrototype}>
-            <div className="overflow-hidden rounded-sm transition-transform duration-300 group-hover:scale-102">
-              <img
-                src="./assets/carrd/a0b0b722.jpg"
-                alt="Pothole.in Hero Graphic"
-                className="max-h-60 sm:max-h-72 w-auto mx-auto object-contain"
-              />
+          {/* Hero Emblem in Plain & Nice Relevant Text */}
+          <div
+            onClick={onOpenPrototype}
+            className="cursor-pointer group p-8 sm:p-10 rounded-2xl bg-[#FDFBF8] border-4 border-[#F5ECE1] hover:border-[#C5A57F] transition-all duration-300 shadow-xs hover:shadow-md max-w-lg mx-auto text-center space-y-4"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5ECE1] text-[#404040] text-xs font-semibold">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>Open Citizen Observatory</span>
             </div>
-            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-sm">
-              <span className="bg-white/90 text-xs font-semibold px-3 py-1.5 rounded-full shadow-md text-[#404040]">
-                Click to explore prototype
-              </span>
+            <div className="space-y-1">
+              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#404040]">
+                Pothole.in
+              </h2>
+              <p className="text-xs uppercase tracking-[0.25rem] text-[#C5A57F] font-bold">
+                Citizen-Led Road Safety Initiative
+              </p>
+            </div>
+            <p className="text-sm text-zinc-600 leading-relaxed font-normal">
+              An open-source, community-led platform to report, track, and resolve hazardous road potholes across India. Documenting field evidence, escalating directly to municipal wards, and monitoring repair accountability.
+            </p>
+            <div className="pt-1 flex items-center justify-center gap-1.5 text-xs font-bold text-[#404040] group-hover:text-[#C5A57F] transition-colors">
+              <span>Launch live interactive map & ward database</span>
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
             </div>
           </div>
 
@@ -234,27 +285,28 @@ export const CarrdLanding: React.FC<CarrdLandingProps> = ({
             <hr className="border-t-2 border-[#F5ECE1] w-full" />
           </div>
 
-          {/* Interactive Action Callout on Gallery */}
+          {/* Interactive Action Callout on Registry */}
           <div className="w-full flex items-center justify-between text-xs text-zinc-500 pt-2 px-1">
             <span className="font-semibold uppercase tracking-wider text-[#C5A57F]">
-              Pothole Evidence Gallery (10 Locations)
+              Pothole Evidence Registry (10 Field Reports)
             </span>
-            <span className="text-zinc-400">Click any image to inspect or vote</span>
+            <span className="text-zinc-400">Click any card to inspect or vote</span>
           </div>
 
-          {/* Image Stream: image01 to image10 with exact 10px #F5ECE1 border and rounded corners */}
-          <div className="w-full space-y-12">
+          {/* Plain & Nice Relevant Text Cards Stream */}
+          <div className="w-full space-y-8">
             {carrdImages.map((img, index) => {
               const matchedPothole = potholes.find((p) => p.id === img.id);
               const upvotes = matchedPothole?.upvotes || 120 + index * 34;
+              const badge = getSeverityBadge(matchedPothole?.severity, matchedPothole?.status);
 
               return (
                 <div
                   key={index}
-                  className="relative group rounded-xl overflow-hidden cursor-pointer"
+                  className="group bg-[#FDFBF8] text-left p-6 sm:p-8 rounded-2xl transition-all duration-300 hover:shadow-lg cursor-pointer space-y-4"
                   style={{
                     border: '10px solid #F5ECE1',
-                    borderRadius: '0.75rem',
+                    borderRadius: '1rem',
                   }}
                   onClick={() => {
                     if (matchedPothole) {
@@ -262,51 +314,84 @@ export const CarrdLanding: React.FC<CarrdLandingProps> = ({
                     }
                   }}
                 >
-                  <div className="h-80 sm:h-96 w-full overflow-hidden bg-zinc-900">
-                    <img
-                      src={img.src}
-                      alt={img.title}
-                      className="w-full h-full object-cover object-right transition-transform duration-500 group-hover:scale-103"
-                    />
-                  </div>
-
-                  {/* Dynamic Floating Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-4 sm:p-6 text-left">
-                    <div className="flex items-center justify-between">
-                      <span className="bg-[#F5ECE1] text-[#404040] text-xs font-mono font-bold px-2.5 py-1 rounded-md uppercase">
+                  {/* Top Bar: Spot Number, Severity Badge, and Location */}
+                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#F5ECE1] pb-3.5">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="bg-[#404040] text-white text-xs font-mono font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">
                         Spot #{index + 1}
                       </span>
-                      <span className="text-xs bg-black/60 text-white backdrop-blur px-2.5 py-1 rounded-full flex items-center gap-1">
-                        <MapPin className="w-3 h-3 text-[#C5A57F]" />
-                        {img.city}
+                      <span className="bg-[#C5A57F]/15 text-[#404040] text-xs font-mono font-bold px-2 py-1 rounded-md border border-[#C5A57F]/30">
+                        {matchedPothole?.reportCode || `POT-0${index + 1}`}
+                      </span>
+                      <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border shadow-2xs ${badge.cls}`}>
+                        {badge.text}
                       </span>
                     </div>
+                    <span className="text-xs bg-[#F5ECE1] text-[#404040] font-semibold px-3 py-1 rounded-full flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-[#C5A57F]" />
+                      <span>{matchedPothole?.location.city || img.city}, {matchedPothole?.location.state || 'India'}</span>
+                    </span>
+                  </div>
 
-                    <div className="space-y-1.5">
-                      <h4 className="text-white font-bold text-base sm:text-lg">
-                        {img.title}
-                      </h4>
-                      <p className="text-zinc-300 text-xs flex items-center gap-1">
-                        {img.landmark}
-                      </p>
-                      <div className="pt-2 flex items-center gap-3">
-                        <button
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            if (matchedPothole) {
-                              onUpvote(matchedPothole.id);
-                            }
-                          }}
-                          className="px-3 py-1.5 bg-[#C5A57F] hover:bg-[#b08e64] text-white text-xs font-bold rounded-lg flex items-center gap-1.5 transition-colors shadow"
-                        >
-                          <ThumbsUp className="w-3.5 h-3.5" />
-                          <span>Upvote ({upvotes})</span>
-                        </button>
-                        <span className="text-white text-xs underline underline-offset-4 font-semibold">
-                          View Ward Status →
-                        </span>
-                      </div>
+                  {/* Main Road Title & Landmark */}
+                  <div className="space-y-1">
+                    <h3 className="text-xl sm:text-2xl font-extrabold text-[#404040] tracking-tight leading-snug group-hover:text-[#C5A57F] transition-colors">
+                      {matchedPothole?.roadName || img.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm font-semibold text-[#C5A57F] flex items-center gap-1">
+                      <span>📍</span>
+                      <span>{img.landmark}</span>
+                    </p>
+                  </div>
+
+                  {/* Plain, Nice, and Relevant Report Text */}
+                  <div className="bg-white/80 p-4 sm:p-5 rounded-xl border border-[#F5ECE1] shadow-2xs">
+                    <p className="text-sm sm:text-base text-zinc-700 leading-relaxed font-normal">
+                      {matchedPothole?.description || img.damageSummary}
+                    </p>
+                  </div>
+
+                  {/* Civic Details & Authority Grid */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs bg-[#F5ECE1]/40 p-3.5 rounded-xl border border-[#F5ECE1]">
+                    <div>
+                      <span className="text-zinc-500 block text-[10px] uppercase font-bold tracking-wider">Crater Depth</span>
+                      <span className="font-mono font-bold text-zinc-800 text-sm">
+                        {matchedPothole?.estimatedDepthCm || 15} cm
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-zinc-500 block text-[10px] uppercase font-bold tracking-wider">Traffic Priority</span>
+                      <span className="font-bold text-zinc-800 text-sm">
+                        {matchedPothole?.trafficImportance || 8}/10 Corridor
+                      </span>
+                    </div>
+                    <div className="col-span-2 sm:col-span-2">
+                      <span className="text-zinc-500 block text-[10px] uppercase font-bold tracking-wider">Municipal Ward Body</span>
+                      <span className="font-semibold text-zinc-800 text-xs truncate block">
+                        {matchedPothole?.wardInfo?.municipalBody || 'Municipal Works Department'}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Action Bar: Upvote & Inspect Button */}
+                  <div className="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-[#F5ECE1]">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (matchedPothole) {
+                          onUpvote(matchedPothole.id);
+                        }
+                      }}
+                      className="px-4 py-2 bg-[#F5ECE1] hover:bg-[#eddcc9] text-[#404040] text-xs font-bold rounded-lg flex items-center gap-2 transition-all active:scale-95 shadow-2xs group/btn"
+                    >
+                      <ThumbsUp className="w-4 h-4 text-[#C5A57F] group-hover/btn:scale-110 transition-transform" />
+                      <span>Support Repair ({upvotes} Upvotes)</span>
+                    </button>
+
+                    <div className="flex items-center gap-1.5 text-xs font-bold text-[#404040] group-hover:text-[#C5A57F] transition-colors">
+                      <span>Inspect Ward Escalation & Timeline</span>
+                      <span className="group-hover:translate-x-1 transition-transform">→</span>
                     </div>
                   </div>
                 </div>

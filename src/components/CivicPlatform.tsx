@@ -322,54 +322,64 @@ export const CivicPlatform: React.FC<CivicPlatformProps> = ({
                     key={pothole.id}
                     className="bg-white rounded-2xl border border-[#F5ECE1] shadow-2xs overflow-hidden flex flex-col hover:border-[#C5A57F]/60 transition-all group"
                   >
-                    {/* Card Photo Container */}
+                    {/* Card Incident Header - Plain & Nice Relevant Text (Replaces image) */}
                     <div
-                      className="relative h-48 w-full bg-zinc-950 overflow-hidden cursor-pointer"
+                      className="p-4 sm:p-5 bg-gradient-to-br from-[#FDFBF8] to-[#F5ECE1]/60 border-b border-[#F5ECE1] cursor-pointer hover:bg-[#F5ECE1]/40 transition-colors"
                       onClick={() => onSelectPothole(pothole)}
                     >
-                      <img
-                        src={pothole.imageUrl}
-                        alt={pothole.roadName}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-104"
-                      />
+                      <div className="flex items-center justify-between gap-2 mb-3">
+                        <span className="bg-[#404040] text-white text-[11px] font-mono font-bold px-2.5 py-1 rounded-md uppercase tracking-wider shadow-2xs">
+                          {pothole.reportCode}
+                        </span>
 
-                      {/* Code Badge */}
-                      <span className="absolute top-3 left-3 bg-black/70 backdrop-blur text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded-md uppercase">
-                        {pothole.reportCode}
-                      </span>
+                        <span
+                          className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-2xs ${
+                            isResolved
+                              ? 'bg-emerald-600 text-white'
+                              : isDangerous
+                              ? 'bg-rose-600 text-white'
+                              : 'bg-amber-500 text-white'
+                          }`}
+                        >
+                          {isResolved ? (
+                            <>
+                              <CheckCircle2 className="w-3 h-3" />
+                              <span>Fixed & Resurfaced</span>
+                            </>
+                          ) : isDangerous ? (
+                            <>
+                              <Flame className="w-3 h-3" />
+                              <span>Critical Crater</span>
+                            </>
+                          ) : (
+                            <>
+                              <AlertTriangle className="w-3 h-3" />
+                              <span>Moderate Risk</span>
+                            </>
+                          )}
+                        </span>
+                      </div>
 
-                      {/* Severity Pill */}
-                      <span
-                        className={`absolute top-3 right-3 text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm ${
-                          isResolved
-                            ? 'bg-emerald-600 text-white'
-                            : isDangerous
-                            ? 'bg-rose-600 text-white'
-                            : 'bg-amber-500 text-white'
-                        }`}
-                      >
-                        {isResolved ? (
-                          <>
-                            <CheckCircle2 className="w-3 h-3" />
-                            <span>Fixed</span>
-                          </>
-                        ) : isDangerous ? (
-                          <>
-                            <Flame className="w-3 h-3" />
-                            <span>Critical</span>
-                          </>
-                        ) : (
-                          <>
-                            <AlertTriangle className="w-3 h-3" />
-                            <span>Moderate</span>
-                          </>
-                        )}
-                      </span>
+                      {/* Evidence Highlight in Plain Text */}
+                      <div className="space-y-1.5">
+                        <div className="flex items-center justify-between text-xs font-semibold text-[#404040]">
+                          <span className="flex items-center gap-1 text-[#C5A57F]">
+                            <span>Crater Depth:</span>
+                            <span className="font-mono text-zinc-900 font-bold">~{pothole.estimatedDepthCm} cm</span>
+                          </span>
+                          <span className="text-zinc-500 text-[11px]">
+                            Traffic Impact: {pothole.trafficImportance}/10
+                          </span>
+                        </div>
+                        <p className="text-xs text-zinc-700 font-medium leading-relaxed line-clamp-2 bg-white/70 p-2 rounded-lg border border-[#F5ECE1]/80">
+                          "{pothole.description}"
+                        </p>
+                      </div>
 
-                      {/* Depth indicator */}
-                      <span className="absolute bottom-3 left-3 bg-black/60 backdrop-blur text-zinc-300 text-[10px] px-2 py-0.5 rounded">
-                        Depth: ~{pothole.estimatedDepthCm}cm
-                      </span>
+                      <div className="mt-3 pt-2 border-t border-[#F5ECE1] flex items-center justify-between text-[10px] text-zinc-500 font-medium">
+                        <span>Reported by {pothole.reporterName}</span>
+                        <span className="text-[#C5A57F] font-bold group-hover:underline">View details →</span>
+                      </div>
                     </div>
 
                     {/* Card Body */}
@@ -471,28 +481,30 @@ export const CivicPlatform: React.FC<CivicPlatformProps> = ({
                     </span>
                   </div>
 
-                  {/* Split Visual Preview */}
-                  <div className="grid grid-cols-2 gap-2 h-44 rounded-2xl overflow-hidden border-2 border-[#F5ECE1]">
-                    <div className="relative h-full bg-zinc-900">
-                      <img
-                        src={pothole.imageUrl}
-                        alt="Before"
-                        className="w-full h-full object-cover"
-                      />
-                      <span className="absolute bottom-2 left-2 bg-rose-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">
-                        BEFORE
-                      </span>
+                  {/* Split Visual Status in Plain Text */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 rounded-2xl bg-white border-2 border-[#F5ECE1]">
+                    <div className="p-3.5 rounded-xl bg-rose-50/70 border border-rose-200 space-y-1 text-left">
+                      <div className="flex items-center justify-between">
+                        <span className="bg-rose-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">
+                          Hazard State (Before)
+                        </span>
+                        <span className="text-rose-700 font-mono text-xs font-bold">~{pothole.estimatedDepthCm} cm depth</span>
+                      </div>
+                      <p className="text-xs text-rose-950 leading-relaxed pt-1">
+                        Dangerous asphalt cavity with water accumulation, causing bottoming-out and two-wheeler skidding risks.
+                      </p>
                     </div>
 
-                    <div className="relative h-full bg-zinc-900">
-                      <img
-                        src={pothole.resolvedImageUrl}
-                        alt="After"
-                        className="w-full h-full object-cover"
-                      />
-                      <span className="absolute bottom-2 left-2 bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">
-                        AFTER RESURFACING
-                      </span>
+                    <div className="p-3.5 rounded-xl bg-emerald-50/70 border border-emerald-200 space-y-1 text-left">
+                      <div className="flex items-center justify-between">
+                        <span className="bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">
+                          Resurfaced (After)
+                        </span>
+                        <span className="text-emerald-700 font-bold text-xs">5★ Verified Smooth</span>
+                      </div>
+                      <p className="text-xs text-emerald-950 leading-relaxed pt-1">
+                        Dense Bituminous Macadam (DBM) applied, road friction restored, certified safe for monsoon traffic.
+                      </p>
                     </div>
                   </div>
 
